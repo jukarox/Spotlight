@@ -27,8 +27,8 @@ class PulseEffect(
     paint.color = color
     paint.alpha = (255 * (value * -1)).toInt()
 
-    val calculatedRadius = radius * value
-    canvas.drawCircle(point.x, point.y, calculatedRadius + offset, paint)
+    val offset = (radius - offset) * value
+    canvas.drawCircle(point.x, point.y, offset + offset, paint)
   }
 
   companion object {

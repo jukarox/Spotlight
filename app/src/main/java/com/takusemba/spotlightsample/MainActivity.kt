@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
       val firstTarget = Target.Builder()
           .setAnchor(findViewById<View>(R.id.one))
           .setShape(Circle(100f))
-          .setEffect(PulseEffect(100f, 40f, Color.argb(255, 255, 255, 255)))
+          .setEffect(PulseEffect(100f, 200f, Color.argb(255, 255, 255, 255)))
           .setOverlay(first)
           .setOnTargetListener(object : OnTargetListener {
             override fun onStarted() {
