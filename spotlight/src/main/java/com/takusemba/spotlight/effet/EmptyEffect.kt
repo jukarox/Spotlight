@@ -2,6 +2,7 @@ package com.takusemba.spotlight.effet
 
 import android.animation.ObjectAnimator
 import android.animation.TimeInterpolator
+import android.animation.ValueAnimator
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.PointF
@@ -14,7 +15,8 @@ import java.util.concurrent.TimeUnit
 class EmptyEffect(
     override val duration: Long = DEFAULT_DURATION,
     override val interpolator: TimeInterpolator = DEFAULT_INTERPOLATOR,
-    override val repeatMode: Int = DEFAULT_REPEAT_MODE
+    override val repeatMode: Int = DEFAULT_REPEAT_MODE,
+    override val repeatCount: Int = DEFAULT_REPEAT_COUNT
 ) : Effect {
 
   override fun draw(canvas: Canvas, point: PointF, value: Float, paint: Paint) = Unit
@@ -26,5 +28,7 @@ class EmptyEffect(
     val DEFAULT_INTERPOLATOR = LinearInterpolator()
 
     const val DEFAULT_REPEAT_MODE = ObjectAnimator.REVERSE
+
+    const val DEFAULT_REPEAT_COUNT = ValueAnimator.INFINITE
   }
 }

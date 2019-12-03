@@ -34,7 +34,10 @@ internal class SpotlightView @JvmOverloads constructor(
   }
 
   private val shapePaint by lazy {
-    Paint().apply { xfermode = PorterDuffXfermode(PorterDuff.Mode.CLEAR) }
+    Paint().apply {
+      xfermode = PorterDuffXfermode(PorterDuff.Mode.CLEAR)
+      isAntiAlias = true
+    }
   }
 
   private val effectPaint by lazy { Paint() }

@@ -26,6 +26,11 @@ interface Effect {
   val repeatMode: Int
 
   /**
+   * [repeatCount] to draw Effect.
+   */
+  val repeatCount: Int
+
+  /**
    * Draw the Effect.
    *
    * @param value the animated value from 0 to 1 and this value is looped until Target finishes.

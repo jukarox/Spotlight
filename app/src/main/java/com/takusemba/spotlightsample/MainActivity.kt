@@ -1,5 +1,6 @@
 package com.takusemba.spotlightsample
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.view.animation.DecelerateInterpolator
@@ -12,6 +13,7 @@ import com.takusemba.spotlight.OnSpotlightListener
 import com.takusemba.spotlight.OnTargetListener
 import com.takusemba.spotlight.Spotlight
 import com.takusemba.spotlight.Target
+import com.takusemba.spotlight.effet.PulseEffect
 import com.takusemba.spotlight.shape.Circle
 
 class MainActivity : AppCompatActivity() {
@@ -31,6 +33,7 @@ class MainActivity : AppCompatActivity() {
       val firstTarget = Target.Builder()
           .setAnchor(findViewById<View>(R.id.one))
           .setShape(Circle(100f))
+          .setEffect(PulseEffect(100f, 40f, Color.argb(255, 255, 255, 255)))
           .setOverlay(first)
           .setOnTargetListener(object : OnTargetListener {
             override fun onStarted() {
