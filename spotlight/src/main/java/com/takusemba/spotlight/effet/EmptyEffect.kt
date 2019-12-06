@@ -16,7 +16,8 @@ class EmptyEffect(
     override val duration: Long = DEFAULT_DURATION,
     override val interpolator: TimeInterpolator = DEFAULT_INTERPOLATOR,
     override val repeatMode: Int = DEFAULT_REPEAT_MODE,
-    override val repeatCount: Int = DEFAULT_REPEAT_COUNT
+    override val repeatCount: Int = DEFAULT_REPEAT_COUNT,
+    override val anchor: PointF? = null
 ) : Effect {
 
   override fun draw(canvas: Canvas, point: PointF, value: Float, paint: Paint) = Unit

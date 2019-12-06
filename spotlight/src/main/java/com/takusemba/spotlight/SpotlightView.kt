@@ -62,20 +62,40 @@ internal class SpotlightView @JvmOverloads constructor(
     val currentTarget = target
     val currentShapeAnimator = shapeAnimator
     val currentEffectAnimator = effectAnimator
-    if (currentTarget != null && currentEffectAnimator != null) {
-      currentTarget.effect.draw(
-          canvas = canvas,
-          point = currentTarget.anchor,
-          value = currentEffectAnimator.animatedValue as Float,
-          paint = effectPaint
-      )
+
+    if (currentTarget != null && currentTarget.displayEffectOverShape) {
+      drawShape(currentTarget, currentShapeAnimator, canvas)
+      drawEffect(currentTarget, currentEffectAnimator, canvas)
+    } else if (currentTarget != null) {
+      drawEffect(currentTarget, currentEffectAnimator, canvas)
+      drawShape(currentTarget, currentShapeAnimator, canvas)
     }
+  }
+
+  private fun drawShape(
+      currentTarget: Target?,
+      currentShapeAnimator: ValueAnimator?, canvas: Canvas
+  ) {
     if (currentTarget != null && currentShapeAnimator != null) {
       currentTarget.shape.draw(
           canvas = canvas,
           point = currentTarget.anchor,
           value = currentShapeAnimator.animatedValue as Float,
           paint = shapePaint
+      )
+    }
+  }
+
+  private fun drawEffect(
+      currentTarget: Target?,
+      currentEffectAnimator: ValueAnimator?, canvas: Canvas
+  ) {
+    if (currentTarget != null && currentEffectAnimator != null) {
+      currentTarget.effect.draw(
+          canvas = canvas,
+          point = currentTarget.effect.anchor ?: currentTarget.anchor,
+          value = currentEffectAnimator.animatedValue as Float,
+          paint = effectPaint
       )
     }
   }

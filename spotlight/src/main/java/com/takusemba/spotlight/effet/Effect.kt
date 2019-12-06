@@ -31,6 +31,11 @@ interface Effect {
   val repeatCount: Int
 
   /**
+   * [anchor] to draw Effect.
+   */
+  val anchor: PointF?
+
+  /**
    * Draw the Effect.
    *
    * @param value the animated value from 0 to 1 and this value is looped until Target finishes.

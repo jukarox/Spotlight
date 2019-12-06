@@ -16,7 +16,8 @@ class Target(
     val effect: Effect,
     val overlay: View?,
     val listener: OnTargetListener?,
-    val isClickable: Boolean
+    val isClickable: Boolean,
+    val displayEffectOverShape: Boolean
 ) {
 
   /**
@@ -40,6 +41,7 @@ class Target(
     private var overlay: View? = null
     private var listener: OnTargetListener? = null
     private var isClickable: Boolean = DEFAULT_IS_CLICKABLE
+    private var displayEffectOverShape: Boolean = false
 
     /**
      * Sets a pointer to start a [Target].
@@ -101,13 +103,21 @@ class Target(
       this.isClickable = isClickable
     }
 
+    /**
+     * Sets [displayEffectOverShape] to enable or disable the click through [Target].
+     */
+    fun setDisplayEffectOverShape(displayEffectOverShape: Boolean): Builder = apply {
+      this.displayEffectOverShape = displayEffectOverShape
+    }
+
     fun build() = Target(
         anchor = anchor,
         shape = shape,
         effect = effect,
         overlay = overlay,
         listener = listener,
-        isClickable = isClickable
+        isClickable = isClickable,
+        displayEffectOverShape = displayEffectOverShape
     )
 
     companion object {

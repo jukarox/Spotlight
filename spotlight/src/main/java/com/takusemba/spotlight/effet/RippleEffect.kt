@@ -20,7 +20,8 @@ class RippleEffect(
     override val duration: Long = DEFAULT_DURATION,
     override val interpolator: TimeInterpolator = DEFAULT_INTERPOLATOR,
     override val repeatMode: Int = DEFAULT_REPEAT_MODE,
-    override val repeatCount: Int
+    override val repeatCount: Int,
+    override val anchor: PointF? = null
 ) : Effect {
 
   init {
