@@ -36,6 +36,11 @@ interface Effect {
   val anchor: PointF?
 
   /**
+   * [startDelay] to draw Effect.
+   */
+  val startDelay: Long
+
+  /**
    * Draw the Effect.
    *
    * @param value the animated value from 0 to 1 and this value is looped until Target finishes.

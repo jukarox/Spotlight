@@ -21,7 +21,8 @@ class PulseEffect(
     override val interpolator: TimeInterpolator = DEFAULT_INTERPOLATOR,
     override val repeatMode: Int = DEFAULT_REPEAT_MODE,
     override val repeatCount: Int = DEFAULT_REPEAT_COUNT,
-    override val anchor: PointF? = null
+    override val anchor: PointF? = null,
+    override val startDelay: Long = DEFAULT_START_DELAY
 ) : Effect {
 
   override fun draw(canvas: Canvas, point: PointF, value: Float, paint: Paint) {
@@ -29,14 +30,7 @@ class PulseEffect(
     paint.alpha = (255 * (value * -1)).toInt()
 
     val calculatedRadius = (radius) * value
-
-    val extraRadius = radius / 2
-
     canvas.drawCircle(point.x, point.y, calculatedRadius + offset, paint)
-
-    canvas.drawCircle(point.x, point.y, calculatedRadius + offset + extraRadius, paint)
-
-    canvas.drawCircle(point.x, point.y, calculatedRadius + offset + (extraRadius * 2), paint)
   }
 
   companion object {
@@ -48,5 +42,7 @@ class PulseEffect(
     const val DEFAULT_REPEAT_MODE = ObjectAnimator.RESTART
 
     const val DEFAULT_REPEAT_COUNT = ValueAnimator.INFINITE
+
+    const val DEFAULT_START_DELAY = 0L
   }
 }

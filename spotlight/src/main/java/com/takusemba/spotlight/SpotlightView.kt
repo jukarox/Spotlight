@@ -5,7 +5,6 @@ import android.animation.ObjectAnimator
 import android.animation.TimeInterpolator
 import android.animation.ValueAnimator
 import android.animation.ValueAnimator.AnimatorUpdateListener
-import android.animation.ValueAnimator.INFINITE
 import android.animation.ValueAnimator.ofFloat
 import android.content.Context
 import android.graphics.Canvas
@@ -149,7 +148,8 @@ internal class SpotlightView @JvmOverloads constructor(
       duration = target.effect.duration
       interpolator = target.effect.interpolator
       repeatMode = target.effect.repeatMode
-      repeatCount = INFINITE
+      repeatCount = target.effect.repeatCount
+      startDelay = target.effect.startDelay
       addUpdateListener(invalidator)
       addListener(listener)
     }

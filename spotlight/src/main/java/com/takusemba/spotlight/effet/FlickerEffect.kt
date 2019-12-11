@@ -20,7 +20,8 @@ class FlickerEffect(
     override val interpolator: TimeInterpolator = DEFAULT_INTERPOLATOR,
     override val repeatMode: Int = DEFAULT_REPEAT_MODE,
     override val repeatCount: Int = DEFAULT_REPEAT_COUNT,
-    override val anchor: PointF? = null
+    override val anchor: PointF? = null,
+    override val startDelay: Long = DEFAULT_START_DELAY
 ) : Effect {
 
   override fun draw(canvas: Canvas, point: PointF, value: Float, paint: Paint) {
@@ -38,5 +39,7 @@ class FlickerEffect(
     const val DEFAULT_REPEAT_MODE = ObjectAnimator.REVERSE
 
     const val DEFAULT_REPEAT_COUNT = ValueAnimator.INFINITE
+
+    const val DEFAULT_START_DELAY = 0L
   }
 }
